@@ -177,16 +177,19 @@ The agent operates in two distinct modes across the notebook:
 
 ## What worked well
 
-- **Open-ended Q&A as intended.** A question like "which departments perform worse during holiday weeks?" would traditionally require a groupby, a significance test, and a narrative. The agent collapsed all three into one prompt, querying `df` directly.
-- **Cross-dimensional synthesis.** The Synthesis section connects six prior sections in a single prompt (holiday uplift, markdown responsiveness, unemployment, growth), replacing substantial custom join code with one internally consistent output.
-- **Interpretation at scale.** Five markdown types, four holiday events, four hypothesis tests, four cluster segments: the agent handled the full pattern in single invocations and surfaced the statistical-vs-practical significance gap (H3's r² = 0.016) without being prompted toward it.
+**Open-ended Q&A as intended.** A question like "which departments perform worse during holiday weeks?" would traditionally require a groupby, a significance test, and a narrative. The agent collapsed all three into one prompt, querying `df` directly.
+
+**Cross-dimensional synthesis.** The Synthesis section connects six prior sections in a single prompt (holiday uplift, markdown responsiveness, unemployment, growth), replacing substantial custom join code with one internally consistent output.
+
+**Interpretation at scale.** Five markdown types, four holiday events, four hypothesis tests, four cluster segments: the agent handled the full pattern in single invocations and surfaced the statistical-vs-practical significance gap (H3's r² = 0.016) without being prompted toward it.
 
 <br>
 
 ## What required careful design
 
-- **Knowing when not to delegate computation.** The agent runs each code block in an isolated namespace, so imports and variables don't persist. Multi-step statistical pipelines broke silently. Keeping all formal analysis in Python and passing verified results as context made every number independently reproducible.
-- **Prompt precision determines output quality.** A 15-word addition (`NOT temperature, NOT CPI`) eliminated a persistent mislabelling. Embedding the 2012 truncation note and the Christmas flag timing caveat in context produced correct interpretations where unconstrained prompts produced misleading ones. The model had the knowledge; the prompt was the interface.
+**Knowing when not to delegate computation.** The agent runs each code block in an isolated namespace, so imports and variables don't persist. Multi-step statistical pipelines broke silently. Keeping all formal analysis in Python and passing verified results as context made every number independently reproducible.
+
+**Prompt precision determines output quality.** A 15-word addition (`NOT temperature, NOT CPI`) eliminated a persistent mislabelling. Embedding the 2012 truncation note and the Christmas flag timing caveat in context produced correct interpretations where unconstrained prompts produced misleading ones. The model had the knowledge; the prompt was the interface.
 
 <br>
 
