@@ -173,8 +173,6 @@ The agent operates in two distinct modes across the notebook:
 
 **Exploration mode** (Sections 4, 13): The agent writes and executes Python code against the live DataFrame to answer open-ended questions. This is the intended use case for `create_pandas_dataframe_agent`: replacing ad-hoc groupby chains with natural language queries.
 
-The verbose agent logs are kept visible intentionally. The green blocks show the code the agent wrote and executed autonomously, which is part of the analysis, not debug output.
-
 <br>
 
 ## What worked well
