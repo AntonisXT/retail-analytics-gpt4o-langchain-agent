@@ -1,0 +1,18 @@
+# Data (downloaded separately from Kaggle)
+data/*
+!data/.gitkeep
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# API keys
+.env
+*.key
