@@ -101,7 +101,7 @@ cd retail-analytics-gpt4o-langchain-agent
 
 **3. Add your OpenAI API key** via Colab Secrets (🔑 icon in the left sidebar). The notebook reads it from `OPENAI_API_KEY`.
 
-**4. Run all cells.** Dependencies install automatically. Expect ~15-20 minutes for a full run and ~$2-3 in API costs (GPT-4o).
+**4. Run all cells.** Dependencies install automatically. Expect ~15 minutes for a full run and ~$0.2 in API costs (GPT-4o).
 
 <br>
 
