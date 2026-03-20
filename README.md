@@ -2,6 +2,10 @@
 
 **Exploratory retail analytics powered by a LangChain pandas agent (GPT-4o). Python owns the stats, the agent owns the narrative.**
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AntonisXT/retail-analytics-gpt4o-langchain-agent/blob/main/retail_sales_analysis.ipynb)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![LangChain 0.3](https://img.shields.io/badge/LangChain-0.3-green?logo=chainlink&logoColor=white)](https://www.langchain.com/)
+
 <br>
 
 <p align="center">
@@ -14,9 +18,7 @@
 
 Retail data is dense. 45 stores, 81 departments, 3 years of weekly sales enriched with markdown spend, CPI, unemployment, and store metadata. Enough to answer dozens of analytical questions, each of which normally means writing more aggregation code, more statistical boilerplate, more interpretation glue.
 
-This notebook takes a different approach. A 421,570-row dataset gets the full analytical treatment in Python: statistical tests, time series decomposition, K-Means segmentation, and hypothesis testing.
-
-A **LangChain pandas agent backed by GPT-4o** then interprets every result, synthesises cross-sectional findings, and answers open-ended business questions against the live DataFrame in plain English. Python handles everything that needs to be reproducible. The agent handles everything that benefits from natural language.
+This notebook takes a different approach. A 421,570-row dataset gets the full analytical treatment **in Python**: statistical tests, time series decomposition, K-Means segmentation, and hypothesis testing. A **LangChain pandas agent backed by GPT-4o** then interprets every result, synthesises cross-sectional findings, and answers open-ended business questions against the live DataFrame in plain English. Python handles everything that needs to be reproducible. The agent handles everything that benefits from natural language.
 
 <br>
 
@@ -93,15 +95,21 @@ The notebook is organised into 16 sections. Each analytical section follows the 
 
 **1. Clone the repo**
 ```bash
-git clone https://github.com/YOUR_USERNAME/retail-analytics-gpt4o-langchain-agent.git
+git clone https://github.com/AntonisXT/retail-analytics-gpt4o-langchain-agent.git
 cd retail-analytics-gpt4o-langchain-agent
 ```
 
-**2. Upload to Google Colab** (recommended) or run locally with Jupyter
+**2. Get the data.** Download the [Walmart Retail Dataset](https://www.kaggle.com/datasets/manjeetsingh/retaildataset) from Kaggle and place the three CSV files in the `data/` folder.
 
-**3. Add your OpenAI API key** via Colab Secrets (🔑 icon in the left sidebar). The notebook reads it from `OPENAI_API_KEY`.
+**3. Set up your OpenAI API key.**
+  - **Colab:** Add it via Colab Secrets (🔑 icon in the left sidebar) as `OPENAI_API_KEY`
+  - **Local:** Set it as an environment variable: `export OPENAI_API_KEY=your_key` (Windows CMD: use `set`, PowerShell: use `$env:`)
 
-**4. Run all cells.** Dependencies install automatically. Expect ~15 minutes for a full run and ~$0.2 in API costs (GPT-4o).
+**4. Open the notebook.** Upload to [Google Colab](https://colab.research.google.com) (recommended) or run locally with Jupyter.
+
+**5. Run all cells.** Dependencies install automatically. Expect ~15 minutes and ~$0.2 in API costs (GPT-4o).
+
+> **Running locally?** Python 3.10+ required. Run `pip install -r requirements.txt` before starting.
 
 <br>
 
@@ -123,25 +131,25 @@ Place the three files in a `data/` directory at the project root.
 
 ```
 retail-analytics-gpt4o-langchain-agent/
-├── retail_sales_analysis_FINAL.ipynb    # The notebook
+├── retail_sales_analysis.ipynb
+├── README.md
+├── requirements.txt
+├── .gitignore
 ├── data/
-│   ├── sales data-set.csv
-│   ├── Features data set.csv
-│   └── stores data-set.csv
-├── plots/                               # Auto-generated visualisations
-│   ├── 01_overview.png
-│   ├── 02_seasonality.png
-│   ├── 03_store_performance.png
-│   ├── 04_markdowns.png
-│   ├── 05_clusters.png
-│   ├── 06_departments.png
-│   ├── 07_synthesis.png
-│   ├── stl_decomposition.png
-│   ├── silhouette.png
-│   ├── multicollinearity.png
-│   ├── outliers.png
-│   └── dept_yoy_growth.png
-└── README.md
+│   └── .gitkeep
+└── plots/                               # Auto-generated visualisations
+    ├── 01_overview.png
+    ├── 02_seasonality.png
+    ├── 03_store_performance.png
+    ├── 04_markdowns.png
+    ├── 05_clusters.png
+    ├── 06_departments.png
+    ├── 07_synthesis.png
+    ├── stl_decomposition.png
+    ├── silhouette.png
+    ├── multicollinearity.png
+    ├── outliers.png
+    └── dept_yoy_growth.png
 ```
 
 <br>
